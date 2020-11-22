@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from ButtonCommands import *
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -25,10 +26,40 @@ class Ui_Form(object):
         self.horizontalLayout.addLayout(self.verticalLayout)
 
         self.retranslateUi(Form)
+
+        self.createComandButtons(Form)
+
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Cam view"))
-        self.image_label.setText(_translate("Form", "TextLabel"))
+        #self.image_label.setText(_translate("Form", "TextLabel"))
         self.control_bt.setText(_translate("Form", "Start"))
+
+    def createComandButtons(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        buttonLabels = [
+                        "WC needed", "I'm hungry", "I'm thirsty",
+                        "Open Notepad", "Open Browser", "I want to rest",
+                        "Exit program", "EMERGENCY Please Help!!!"
+                    ]
+
+        commandList = [ButtonCommands.command1, ButtonCommands.command2, ButtonCommands.command3,
+                       ButtonCommands.command4, ButtonCommands.command5, ButtonCommands.command6,
+                       ButtonCommands.command7, ButtonCommands.command8]
+        self.buttonList = []
+        for label, command in zip(buttonLabels, commandList):
+
+            self.command_button = QtWidgets.QPushButton(Form)
+            self.command_button.setObjectName(label)
+            self.verticalLayout.addWidget(self.command_button)
+            self.command_button.setText(_translate("Form", label))
+            self.command_button.clicked.connect(command)
+            self.buttonList.append(self.command_button)
+
+        return self.buttonList
+
+
+
+

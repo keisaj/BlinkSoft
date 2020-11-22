@@ -40,7 +40,7 @@ class MainWindow(QWidget):
         self.timer.timeout.connect(self.viewCam)
         # set control_bt callback clicked  function
         self.ui.control_bt.clicked.connect(self.controlTimer)
-
+        self.iterating = True
     # view camera
     def viewCam(self):
         # read image in BGR format
@@ -134,6 +134,14 @@ class MainWindow(QWidget):
             self.cap.release()
             # update control_bt text
             self.ui.control_bt.setText("Start")
+
+    """def iterateThroughButtons(self):
+
+        while self.iterating:
+
+            for button in self.ui.buttonList:
+                button"""
+
 
 
 if __name__ == '__main__':
