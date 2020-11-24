@@ -22,6 +22,7 @@ import cv2
 
 from ui_main_window import *
 
+
 class MainWindow(QWidget):
     # class constructor
     def __init__(self):
