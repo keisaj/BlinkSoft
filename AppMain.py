@@ -12,6 +12,9 @@ from scipy.spatial import distance
 
 from guiLoop import guiLoop
 
+from pynput import keyboard
+from pynput.keyboard import Key, Controller
+
 
 import cv2
 
@@ -25,6 +28,8 @@ class AppMain(QWidget):
         super().__init__()
         self.ui =Ui_AppWindow()
         self.ui.setupUi(self)
+
+        self.keyboard = Controller()
 
         self.hog_face_detector = dlib.get_frontal_face_detector()
         self.dlib_facelandmark = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
@@ -42,15 +47,24 @@ class AppMain(QWidget):
         self.ui.button7.clicked.connect(ButtonCommands.command7)
         self.ui.button8.clicked.connect(ButtonCommands.command8)
 
+
+
+
     @guiLoop
     def buttonLoop(self):
         self.buttonList = [self.ui.button1, self.ui.button2, self.ui.button3, self.ui.button4, self.ui.button5, self.ui.button6, self.ui.button7, self.ui.button8]
         while 1:
             for button in self.buttonList:
-                button.setStyleSheet("background-color : red")
-                yield 1
-                button.setStyleSheet("background-color : white")
-                yield 1
+                #button.setStyleSheet("background-color : red")
+                button.setFocus()
+                self.selectedButton = button
+                yield 2
+                #button.setStyleSheet("background-color : white")
+
+
+
+
+
 
 
     def viewCam(self):
@@ -127,6 +141,8 @@ class AppMain(QWidget):
                 cv2.putText(frame, "Sensing signal", (20, 400),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
                 print("Eyes closed")
+                self.keyboard.press(Key.space)
+                self.keyboard.release(Key.space)
             print(EAR)
 
     def calculate_EAR(self, eye):

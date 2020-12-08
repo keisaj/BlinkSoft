@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>765</width>
-    <height>639</height>
+    <width>700</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,114 +17,253 @@
    <widget class="QPushButton" name="button1">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>322</y>
-      <width>331</width>
-      <height>21</height>
+      <x>30</x>
+      <y>380</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
     <property name="text">
-     <string>WC needed</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>wc.png</normaloff>
+      <selectedon>wc2.png</selectedon>wc.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="button2">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>350</y>
-      <width>331</width>
-      <height>23</height>
+      <x>160</x>
+      <y>380</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>I'm hungry</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>food.png</normaloff>
+      <selectedon>food2.png</selectedon>food.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="button3">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>290</x>
       <y>380</y>
-      <width>331</width>
-      <height>23</height>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>I'm thirsty</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>water.png</normaloff>
+      <selectedon>water2.png</selectedon>water.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="button4">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>410</y>
-      <width>331</width>
-      <height>23</height>
+      <x>420</x>
+      <y>380</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Open Notepad</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>notepad.png</normaloff>
+      <selectedon>notepad2.png</selectedon>notepad.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="button5">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>440</y>
-      <width>331</width>
-      <height>23</height>
+      <x>550</x>
+      <y>380</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Open Browser</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>web.png</normaloff>
+      <selectedon>web2.png</selectedon>web.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="button6">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>470</y>
-      <width>331</width>
-      <height>23</height>
+      <x>30</x>
+      <y>510</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
-    <property name="text">
-     <string>I want to rest</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="button7">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>500</y>
-      <width>331</width>
-      <height>23</height>
-     </rect>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="text">
-     <string>Exit program</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>bed.png</normaloff>
+      <selectedon>bed2.png</selectedon>bed.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="button8">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>530</y>
-      <width>331</width>
-      <height>23</height>
+      <x>550</x>
+      <y>510</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>EMERGENCY Please Help!!!</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>exit.png</normaloff>
+      <selectedon>exit2.png</selectedon>exit.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button7_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>510</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>emergency.png</normaloff>
+      <selectedon>emergency2.png</selectedon>emergency.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="videoLabel">
     <property name="geometry">
      <rect>
-      <x>236</x>
-      <y>10</y>
-      <width>341</width>
-      <height>271</height>
+      <x>30</x>
+      <y>20</y>
+      <width>621</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="text">
@@ -137,7 +276,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>765</width>
+     <width>700</width>
      <height>20</height>
     </rect>
    </property>

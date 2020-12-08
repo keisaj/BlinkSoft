@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QFont
 
 
 class Ui_AppWindow(object):
@@ -18,6 +19,7 @@ class Ui_AppWindow(object):
         self.videoLabel.setObjectName("videoLabel")
 
         self.button1 = QtWidgets.QPushButton(AppWindow)
+        self.button1.setGeometry(200, 150, 100, 30)
         self.verticalLayout.addWidget(self.button1)
         self.button1.setObjectName("button1")
 
@@ -49,10 +51,19 @@ class Ui_AppWindow(object):
         self.verticalLayout.addWidget(self.button8)
         self.button8.setObjectName("button8")
 
+        self.buttonFeatures()
+
         self.horizontalLayout.addLayout(self.verticalLayout)
 
         self.retranslateUi(AppWindow)
         QtCore.QMetaObject.connectSlotsByName(AppWindow)
+
+    def buttonFeatures(self):
+        self.buttonList = [self.button1, self.button2, self.button3, self.button4, self.button5,
+                           self.button6, self.button7, self.button8]
+        for button in self.buttonList:
+            button.setFont(QFont('Arial', 15))
+            #button.setStyleSheet("background-color : white")
 
     def retranslateUi(self, AppWindow):
         _translate = QtCore.QCoreApplication.translate
