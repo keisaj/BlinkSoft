@@ -18,8 +18,10 @@ from pynput.keyboard import Key, Controller
 
 import cv2
 
-from AppWindowSetup import *
+#from AppWindowSetup import *
 from ButtonCommands import *
+from AppWindowSetup3 import *
+
 
 class AppMain(QWidget):
 
@@ -55,11 +57,11 @@ class AppMain(QWidget):
         self.buttonList = [self.ui.button1, self.ui.button2, self.ui.button3, self.ui.button4, self.ui.button5, self.ui.button6, self.ui.button7, self.ui.button8]
         while 1:
             for button in self.buttonList:
-                #button.setStyleSheet("background-color : red")
+                button.setStyleSheet("background-color : red")
                 button.setFocus()
                 self.selectedButton = button
                 yield 2
-                #button.setStyleSheet("background-color : white")
+                button.setStyleSheet("background-color : light gray")
 
 
 

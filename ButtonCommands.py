@@ -32,7 +32,7 @@ class ButtonCommands(object):
         print("I want to rest")
 
     def command7(self):
-        print("Exiting program...")
+        print("EMERGENCY Please Help!!!")
 
     def command8(self):
-        print("EMERGENCY Please Help!!!")
+        print("Exiting program...")
