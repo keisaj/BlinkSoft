@@ -18,9 +18,8 @@ from pynput.keyboard import Key, Controller
 
 import cv2
 
-#from AppWindowSetup import *
 from ButtonCommands import *
-from AppWindowSetup3 import *
+from AppWindowSetup4 import *
 
 
 class AppMain(QWidget):

@@ -37,8 +37,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>wc.png</normaloff>
-      <selectedon>wc2.png</selectedon>wc.png</iconset>
+      <normaloff>wc.png</normaloff>wc.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -67,8 +66,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>food.png</normaloff>
-      <selectedon>food2.png</selectedon>food.png</iconset>
+      <normaloff>food.png</normaloff>food.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -97,8 +95,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>water.png</normaloff>
-      <selectedon>water2.png</selectedon>water.png</iconset>
+      <normaloff>water.png</normaloff>water.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -127,8 +124,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>notepad.png</normaloff>
-      <selectedon>notepad2.png</selectedon>notepad.png</iconset>
+      <normaloff>notepad.png</normaloff>notepad.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -157,8 +153,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>web.png</normaloff>
-      <selectedon>web2.png</selectedon>web.png</iconset>
+      <normaloff>web.png</normaloff>web.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -187,8 +182,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>bed.png</normaloff>
-      <selectedon>bed2.png</selectedon>bed.png</iconset>
+      <normaloff>bed.png</normaloff>bed.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -217,8 +211,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>exit.png</normaloff>
-      <selectedon>exit2.png</selectedon>exit.png</iconset>
+      <normaloff>exit.png</normaloff>exit.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -227,7 +220,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="button7_2">
+   <widget class="QPushButton" name="button7">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -247,8 +240,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>emergency.png</normaloff>
-      <selectedon>emergency2.png</selectedon>emergency.png</iconset>
+      <normaloff>emergency.png</normaloff>emergency.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -265,6 +257,15 @@
       <width>640</width>
       <height>480</height>
      </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="lineWidth">
+     <number>2</number>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
     </property>
     <property name="text">
      <string/>

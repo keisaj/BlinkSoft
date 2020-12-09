@@ -15,20 +15,20 @@ class Ui_AppWindow(object):
     def setupUi(self, AppWindow):
         AppWindow.setObjectName("AppWindow")
         AppWindow.resize(701, 896)
+
         self.centralwidget = QtWidgets.QWidget(AppWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.button1 = QtWidgets.QPushButton(self.centralwidget)
         self.button1.setGeometry(QtCore.QRect(10, 560, 120, 120))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(11)
-
         self.button1.setFont(font)
         self.button1.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.button1.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("wc.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon.addPixmap(QtGui.QPixmap("wc2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button1.setIcon(icon)
         self.button1.setIconSize(QtCore.QSize(100, 100))
         self.button1.setObjectName("button1")
@@ -39,7 +39,6 @@ class Ui_AppWindow(object):
         self.button2.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("food.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon1.addPixmap(QtGui.QPixmap("food2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button2.setIcon(icon1)
         self.button2.setIconSize(QtCore.QSize(100, 100))
         self.button2.setObjectName("button2")
@@ -50,7 +49,6 @@ class Ui_AppWindow(object):
         self.button3.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("water.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap("water2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button3.setIcon(icon2)
         self.button3.setIconSize(QtCore.QSize(100, 100))
         self.button3.setObjectName("button3")
@@ -61,7 +59,6 @@ class Ui_AppWindow(object):
         self.button4.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("notepad.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon3.addPixmap(QtGui.QPixmap("notepad2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button4.setIcon(icon3)
         self.button4.setIconSize(QtCore.QSize(100, 100))
         self.button4.setObjectName("button4")
@@ -72,7 +69,6 @@ class Ui_AppWindow(object):
         self.button5.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("web.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon4.addPixmap(QtGui.QPixmap("web2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button5.setIcon(icon4)
         self.button5.setIconSize(QtCore.QSize(100, 100))
         self.button5.setObjectName("button5")
@@ -83,7 +79,6 @@ class Ui_AppWindow(object):
         self.button6.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("bed.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon5.addPixmap(QtGui.QPixmap("bed2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button6.setIcon(icon5)
         self.button6.setIconSize(QtCore.QSize(100, 100))
         self.button6.setObjectName("button6")
@@ -94,7 +89,6 @@ class Ui_AppWindow(object):
         self.button8.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("exit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon6.addPixmap(QtGui.QPixmap("exit2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button8.setIcon(icon6)
         self.button8.setIconSize(QtCore.QSize(100, 100))
         self.button8.setObjectName("button8")
@@ -105,15 +99,18 @@ class Ui_AppWindow(object):
         self.button7.setText("")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("emergency.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon7.addPixmap(QtGui.QPixmap("emergency2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         self.button7.setIcon(icon7)
         self.button7.setIconSize(QtCore.QSize(100, 100))
         self.button7.setObjectName("button7")
 
         self.videoLabel = QtWidgets.QLabel(self.centralwidget)
         self.videoLabel.setGeometry(QtCore.QRect(30, 40, 640, 480))
+        self.videoLabel.setFrameShape(QtWidgets.QFrame.Panel)
+        self.videoLabel.setLineWidth(2)
+        self.videoLabel.setMidLineWidth(0)
         self.videoLabel.setText("")
         self.videoLabel.setObjectName("videoLabel")
+
         #AppWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(AppWindow)
@@ -122,6 +119,5 @@ class Ui_AppWindow(object):
     def retranslateUi(self, AppWindow):
         _translate = QtCore.QCoreApplication.translate
         AppWindow.setWindowTitle(_translate("AppWindow", "MainWindow"))
-
 
 
