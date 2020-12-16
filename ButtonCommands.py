@@ -1,6 +1,7 @@
 import subprocess as sp
 import os
 import webbrowser
+import asyncio
 
 
 
@@ -22,7 +23,7 @@ class ButtonCommands(object):
         file = open(fileName, 'w')
         file.close()
         sp.Popen([programName, fileName])
-        os.system("osk")
+        asyncio.create_subprocess_exec("osk")
 
 
     def command5(self):
