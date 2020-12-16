@@ -24,6 +24,7 @@ class ButtonCommands(object):
         sp.Popen([programName, fileName])
         os.system("osk")
 
+
     def command5(self):
         webbrowser.open("https://google.com")
         os.system("osk")

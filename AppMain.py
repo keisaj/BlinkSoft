@@ -21,8 +21,9 @@ import cv2
 from ButtonCommands import *
 from AppWindowSetup4 import *
 
-
+flaga = False
 class AppMain(QWidget):
+
 
     def __init__(self):
 
@@ -53,7 +54,8 @@ class AppMain(QWidget):
 
     @guiLoop
     def buttonLoop(self):
-        self.buttonList = [self.ui.button1, self.ui.button2, self.ui.button3, self.ui.button4, self.ui.button5, self.ui.button6, self.ui.button7, self.ui.button8]
+        self.buttonList = [self.ui.button1, self.ui.button2, self.ui.button3, self.ui.button4, self.ui.button5,
+                           self.ui.button6, self.ui.button7, self.ui.button8]
         while 1:
             for button in self.buttonList:
                 button.setStyleSheet("background-color : red")
@@ -61,11 +63,6 @@ class AppMain(QWidget):
                 self.selectedButton = button
                 yield 2
                 button.setStyleSheet("background-color : light gray")
-
-
-
-
-
 
 
     def viewCam(self):
@@ -99,17 +96,20 @@ class AppMain(QWidget):
         """
         Draws lines trough eye landmarks and detects if eyes are closed or not
         """
+        global flaga
         self.frame = frame
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         faces = self.hog_face_detector(gray)
+
         for face in faces:
 
             face_landmarks = self.dlib_facelandmark(gray, face)
-            leftEye = []
-            rightEye = []
+            leftEye = [] # left eye coordinates array
+            rightEye = [] # right eye coordinates array
 
             for n in range(36, 42):
+                # drawing line through left eye points and appending point's coordinates to the array
                 x = face_landmarks.part(n).x
                 y = face_landmarks.part(n).y
                 leftEye.append((x, y))
@@ -118,9 +118,10 @@ class AppMain(QWidget):
                     next_point = 36
                 x2 = face_landmarks.part(next_point).x
                 y2 = face_landmarks.part(next_point).y
-                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1)
+                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1) # drawing line through eye points
 
             for n in range(42, 48):
+                # drawing line through right eye points and appending point's coordinates to the array
                 x = face_landmarks.part(n).x
                 y = face_landmarks.part(n).y
                 rightEye.append((x, y))
@@ -129,22 +130,27 @@ class AppMain(QWidget):
                     next_point = 42
                 x2 = face_landmarks.part(next_point).x
                 y2 = face_landmarks.part(next_point).y
-                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1)
+                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1) # drawing line through eye points
 
             left_ear = self.calculate_EAR(leftEye)
             right_ear = self.calculate_EAR(rightEye)
 
             EAR = (left_ear + right_ear) / 2
             EAR = round(EAR, 2)
+
             if EAR < 0.26:
                 cv2.putText(frame, "Eyes closed", (20, 100),
                             cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
                 cv2.putText(frame, "Sensing signal", (20, 400),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
-                print("Eyes closed")
-                self.keyboard.press(Key.space)
-                self.keyboard.release(Key.space)
-            print(EAR)
+                #print("Eyes closed")
+                if flaga == False:
+                    self.keyboard.press(Key.space)
+                    self.keyboard.release(Key.space)
+                    flaga = True
+            else:
+                flaga = False
+            #print(EAR)
 
     def calculate_EAR(self, eye):
         """
