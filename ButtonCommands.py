@@ -3,11 +3,16 @@ import os
 import webbrowser
 import asyncio
 
+import threading
 
-
+def thread_osk():
+    os.system("osk")
+    
+    while True:
+        pass
+        
 
 class ButtonCommands(object):
-
     def command1(self):
         print("I need to use bathroom")
 
@@ -23,12 +28,16 @@ class ButtonCommands(object):
         file = open(fileName, 'w')
         file.close()
         sp.Popen([programName, fileName])
-        asyncio.create_subprocess_exec("osk")
+
+        x = threading.Thread(target=thread_osk)
+        x.start()
+
 
 
     def command5(self):
+        x = threading.Thread(target=thread_osk)
         webbrowser.open("https://google.com")
-        os.system("osk")
+        x.start()
 
     def command6(self):
         print("I want to rest")
