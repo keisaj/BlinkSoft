@@ -2,11 +2,16 @@ import subprocess as sp
 import os
 import webbrowser
 
+import threading
 
-
+def thread_osk():
+    os.system("osk")
+    
+    while true:
+        pass
+        
 
 class ButtonCommands(object):
-
     def command1(self):
         print("I need to use bathroom")
 
@@ -22,12 +27,16 @@ class ButtonCommands(object):
         file = open(fileName, 'w')
         file.close()
         sp.Popen([programName, fileName])
-        os.system("osk")
+        
+        x = threading.Thread(target=thread_osk)
+        webbrowser.open("https://google.com")
+        x.start()
 
 
     def command5(self):
+        x = threading.Thread(target=thread_osk)
         webbrowser.open("https://google.com")
-        os.system("osk")
+        x.start()
 
     def command6(self):
         print("I want to rest")
