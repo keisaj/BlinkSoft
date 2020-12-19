@@ -18,10 +18,14 @@ from pynput.keyboard import Key, Controller
 
 import cv2
 
+import datetime as dt
+import time
+
 from ButtonCommands import *
 from AppWindowSetup4 import *
 
 flaga = False
+
 class AppMain(QWidget):
 
 
@@ -39,6 +43,8 @@ class AppMain(QWidget):
         self.timer = QTimer()
         self.timer.timeout.connect(self.viewCam)
         self.controlTimer()
+
+        #ButtonCommands.thread_keyboard_listener()
 
         self.ui.button1.clicked.connect(ButtonCommands.command1)
         self.ui.button2.clicked.connect(ButtonCommands.command2)
