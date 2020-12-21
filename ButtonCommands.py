@@ -14,33 +14,30 @@ import signal
 
 class ButtonCommands(object):
 
-
-    def thread_osk():
-        osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP).pid
-        time.sleep(5)
-        sp.Popen().terminate(osk)
-        print('terminated')
+    @classmethod
+    def thread_osk(cls):
+        cls.osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP)
 
 
 
-    """def on_press(self, key):
+    @staticmethod
+    def on_press(key):
         if key == keyboard.Key.esc:
             print("escapin")
-
-
             return False
 
 
-    def keyboard_listener(self):
+
+    @staticmethod
+    def keyboard_listener():
         with keyboard.Listener(
-                on_press=self.on_press) as listener:
+                on_press=ButtonCommands.on_press) as listener:
             listener.join()
 
-
-
-    def thread_keyboard_listener(self):
-        y = threading.Thread(target=self.keyboard_listener())
-        y.start()"""
+    @staticmethod
+    def thread_keyboard_listener():
+        y = threading.Thread(target=ButtonCommands.keyboard_listener)
+        y.start()
 
 
     def command1(self):
@@ -57,10 +54,11 @@ class ButtonCommands(object):
         fileName = "file.txt"
         file = open(fileName, 'w')
         file.close()
-        sp.Popen([programName, fileName])
+        notepad = sp.Popen([programName, fileName])
+
+        ButtonCommands.thread_keyboard_listener()
 
         x = threading.Thread(target=ButtonCommands.thread_osk)
-
         x.start()
 
 

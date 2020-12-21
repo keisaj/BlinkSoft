@@ -44,7 +44,7 @@ class AppMain(QWidget):
         self.timer.timeout.connect(self.viewCam)
         self.controlTimer()
 
-        #ButtonCommands.thread_keyboard_listener()
+
 
         self.ui.button1.clicked.connect(ButtonCommands.command1)
         self.ui.button2.clicked.connect(ButtonCommands.command2)
@@ -175,5 +175,6 @@ if __name__ == '__main__':
     mainWindow = AppMain()
     mainWindow.show()
     mainWindow.buttonLoop()
+    #ButtonCommands.thread_keyboard_listener()
 
     sys.exit(app.exec_())
