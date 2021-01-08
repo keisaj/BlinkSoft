@@ -175,6 +175,6 @@ if __name__ == '__main__':
     mainWindow = AppMain()
     mainWindow.show()
     mainWindow.buttonLoop()
-    #ButtonCommands.thread_keyboard_listener()
+
 
     sys.exit(app.exec_())

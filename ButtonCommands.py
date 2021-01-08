@@ -1,9 +1,11 @@
 import subprocess as sp
 
 import webbrowser
+from PyQt5.QtWidgets import QApplication
 
 from pynput import keyboard
 import threading
+import sys
 
 import time
 import os
@@ -13,7 +15,7 @@ import signal
         
 
 class ButtonCommands(object):
-
+    
     @classmethod
     def thread_osk(cls):
         cls.osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP)
@@ -76,3 +78,5 @@ class ButtonCommands(object):
 
     def command8(self):
         print("Exiting program...")
+        app = QApplication(sys.argv)
+        sys.exit(app.exec_())
