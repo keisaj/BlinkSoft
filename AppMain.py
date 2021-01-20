@@ -6,24 +6,13 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QImage
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QTimer
-
 import dlib
 from scipy.spatial import distance
-
 from guiLoop import guiLoop
-
-from pynput import keyboard
 from pynput.keyboard import Key, Controller
-
-
 import cv2
-
-import datetime as dt
-import time
-
 from ButtonCommands import *
-#import ButtonCommands2
-from AppWindowSetup4 import *
+from AppWindowSetup import *
 
 flaga = False
 

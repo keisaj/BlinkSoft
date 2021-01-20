@@ -1,28 +1,18 @@
 import subprocess as sp
-
 import webbrowser
 from PyQt5.QtWidgets import QApplication
-
 from pynput import keyboard
 import threading
 import sys
-
 import pyautogui
-
-import time
 import os
-import signal
 
-
-        
 
 class ButtonCommands(object):
 
     @staticmethod
     def thread_osk():
         osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP)
-
-
 
     @staticmethod
     def on_press(key):
@@ -36,8 +26,6 @@ class ButtonCommands(object):
             pyautogui.keyUp('Enter')
             return False
 
-
-
     @staticmethod
     def keyboard_listener():
         with keyboard.Listener(
@@ -48,7 +36,6 @@ class ButtonCommands(object):
     def thread_keyboard_listener():
         y = threading.Thread(target=ButtonCommands.keyboard_listener)
         y.start()
-
 
     def command1(self):
         print("I need to use a bathroom")
@@ -71,13 +58,11 @@ class ButtonCommands(object):
         x = threading.Thread(target=ButtonCommands.thread_osk)
         x.start()
 
-
     def command5(self):
         ButtonCommands.thread_keyboard_listener()
         x = threading.Thread(target=ButtonCommands.thread_osk)
         webbrowser.open("https://google.com")
         x.start()
-
 
     def command6(self):
         print("I want to rest")
