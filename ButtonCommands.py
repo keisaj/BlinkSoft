@@ -7,6 +7,8 @@ from pynput import keyboard
 import threading
 import sys
 
+import pyautogui
+
 import time
 import os
 import signal
@@ -15,10 +17,10 @@ import signal
         
 
 class ButtonCommands(object):
-    
-    @classmethod
-    def thread_osk(cls):
-        cls.osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP)
+
+    @staticmethod
+    def thread_osk():
+        osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP)
 
 
 
@@ -26,6 +28,12 @@ class ButtonCommands(object):
     def on_press(key):
         if key == keyboard.Key.esc:
             print("escapin")
+            pyautogui.keyDown('alt')
+            pyautogui.press('f4')
+            pyautogui.keyUp('alt')
+            os.system('taskkill /im osk.exe')
+            pyautogui.keyDown('Enter')
+            pyautogui.keyUp('Enter')
             return False
 
 
@@ -43,7 +51,7 @@ class ButtonCommands(object):
 
 
     def command1(self):
-        print("I need to use bathroom")
+        print("I need to use a bathroom")
 
     def command2(self):
         print("I'm hungry.")
@@ -65,6 +73,7 @@ class ButtonCommands(object):
 
 
     def command5(self):
+        ButtonCommands.thread_keyboard_listener()
         x = threading.Thread(target=ButtonCommands.thread_osk)
         webbrowser.open("https://google.com")
         x.start()
