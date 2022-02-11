@@ -17,26 +17,6 @@
 ## FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 ## OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 ## DEALINGS IN THE SOFTWARE.
-"""
-guiLoop lets you use while and for loops with GUIs.
-Usually using loops in GUIs makes them block.
-
-This module uses the yield statement in loops to let the GUI update while the loop is still running.
-See the example.py or start_and_stop.py for examples.
-The code is available here: https://gist.github.com/niccokunzmann/8673951#file-guiloop-py
-
-Currently only tkinter is supported but with a little help this can be adapted to other GUI frameworks, too.
-
-Change the function _start_in_gui for different GUI frameworks.
-
-If you use this code for an other GUI than tkinter send me your code or
-leave a comment so that some day this can become a module on pypi.python.org
-useful for others, too.
-
-This was created because of an stackoverflow question:
-    http://stackoverflow.com/questions/21411748/python-how-do-i-continuously-repeat-a-sequence-without-a-while-loop-and-still
-
-"""
 
 
 def use_tkinter_after(gui_element, wait_time, call_this):

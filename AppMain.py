@@ -1,7 +1,3 @@
-import sys
-
-# import some PyQt5 modules
-from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QImage
 from PyQt5.QtGui import QPixmap
@@ -14,15 +10,15 @@ import cv2
 from ButtonCommands import *
 from AppWindowSetup import *
 
-flaga = False
+flag = False
+
 
 class AppMain(QWidget):
-
 
     def __init__(self):
 
         super().__init__()
-        self.ui =Ui_AppWindow()
+        self.ui = Ui_AppWindow()
         self.ui.setupUi(self)
 
         self.keyboard = Controller()
@@ -34,8 +30,6 @@ class AppMain(QWidget):
         self.timer.timeout.connect(self.viewCam)
         self.controlTimer()
 
-
-
         self.ui.button1.clicked.connect(ButtonCommands.command1)
         self.ui.button2.clicked.connect(ButtonCommands.command2)
         self.ui.button3.clicked.connect(ButtonCommands.command3)
@@ -45,11 +39,11 @@ class AppMain(QWidget):
         self.ui.button7.clicked.connect(ButtonCommands.command7)
         self.ui.button8.clicked.connect(ButtonCommands.command8)
 
-
-
-
     @guiLoop
     def buttonLoop(self):
+        """
+        Creates a loop which iterates through buttons and highlights them
+        """
         self.buttonList = [self.ui.button1, self.ui.button2, self.ui.button3, self.ui.button4, self.ui.button5,
                            self.ui.button6, self.ui.button7, self.ui.button8]
         while 1:
@@ -57,11 +51,13 @@ class AppMain(QWidget):
                 button.setStyleSheet("background-color : red")
                 button.setFocus()
                 self.selectedButton = button
-                yield 2
+                yield 1
                 button.setStyleSheet("background-color : light gray")
 
-
     def viewCam(self):
+        """
+        Captures video from webcam and puts it inside GUI
+        """
 
         _, frame = self.cap.read()
         frame = cv2.flip(frame, 1)
@@ -87,12 +83,11 @@ class AppMain(QWidget):
             self.timer.stop()
             self.cap.release()
 
-
     def draw_eyes(self, frame):
         """
         Draws lines trough eye landmarks and detects if eyes are closed or not
         """
-        global flaga
+        global flag
         self.frame = frame
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -101,8 +96,8 @@ class AppMain(QWidget):
         for face in faces:
 
             face_landmarks = self.dlib_facelandmark(gray, face)
-            leftEye = [] # left eye coordinates array
-            rightEye = [] # right eye coordinates array
+            leftEye = []  # left eye coordinates array
+            rightEye = []  # right eye coordinates array
 
             for n in range(36, 42):
                 # drawing line through left eye points and appending point's coordinates to the array
@@ -114,7 +109,7 @@ class AppMain(QWidget):
                     next_point = 36
                 x2 = face_landmarks.part(next_point).x
                 y2 = face_landmarks.part(next_point).y
-                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1) # drawing line through eye points
+                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1)  # drawing line through eye points
 
             for n in range(42, 48):
                 # drawing line through right eye points and appending point's coordinates to the array
@@ -126,7 +121,7 @@ class AppMain(QWidget):
                     next_point = 42
                 x2 = face_landmarks.part(next_point).x
                 y2 = face_landmarks.part(next_point).y
-                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1) # drawing line through eye points
+                cv2.line(frame, (x, y), (x2, y2), (0, 255, 0), 1)  # drawing line through eye points
 
             left_ear = self.calculate_EAR(leftEye)
             right_ear = self.calculate_EAR(rightEye)
@@ -139,14 +134,13 @@ class AppMain(QWidget):
                             cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
                 cv2.putText(frame, "Sensing signal", (20, 400),
                             cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
-                #print("Eyes closed")
-                if flaga == False:
+                if not flag:
                     self.keyboard.press(Key.space)
                     self.keyboard.release(Key.space)
-                    flaga = True
+                    flag = True
             else:
-                flaga = False
-            #print(EAR)
+                flag = False
+            # print(EAR)
 
     def calculate_EAR(self, eye):
         """
@@ -159,12 +153,12 @@ class AppMain(QWidget):
         self.eye_aspect_ratio = (A + B) / (2.0 * C)
         return self.eye_aspect_ratio
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
     mainWindow = AppMain()
     mainWindow.show()
     mainWindow.buttonLoop()
-
 
     sys.exit(app.exec_())

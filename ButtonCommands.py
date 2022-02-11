@@ -8,8 +8,8 @@ import pyautogui
 import os
 
 
-class ButtonCommands(object):
 
+class ButtonCommands(object):
     @staticmethod
     def thread_osk():
         osk = sp.Popen("osk", stdout=sp.PIPE, shell=True, creationflags=sp.CREATE_NEW_PROCESS_GROUP)
@@ -17,7 +17,7 @@ class ButtonCommands(object):
     @staticmethod
     def on_press(key):
         if key == keyboard.Key.esc:
-            print("escapin")
+            print("Exiting onscreen keyboard...")
             pyautogui.keyDown('alt')
             pyautogui.press('f4')
             pyautogui.keyUp('alt')
@@ -52,14 +52,13 @@ class ButtonCommands(object):
         file = open(fileName, 'w')
         file.close()
         notepad = sp.Popen([programName, fileName])
-
         ButtonCommands.thread_keyboard_listener()
-
         x = threading.Thread(target=ButtonCommands.thread_osk)
         x.start()
 
     def command5(self):
         ButtonCommands.thread_keyboard_listener()
+        ButtonCommands.browsercount = 0
         x = threading.Thread(target=ButtonCommands.thread_osk)
         webbrowser.open("https://google.com")
         x.start()
@@ -74,3 +73,4 @@ class ButtonCommands(object):
         print("Exiting program...")
         app = QApplication(sys.argv)
         sys.exit(app.exec_())
+
